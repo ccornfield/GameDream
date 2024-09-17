@@ -2,3 +2,43 @@
 {% block content%}
 
 <h3>Add Title to the database.</h3>
+
+<form>
+    <div class="mb-3">
+        <label for="game_title" class="form-label">Game Name</label>
+        <input type="text" class="form-control" id="game_title" name="game_title" placeholder="Game Name" required>
+      </div>
+      <div class="mb-3">
+        <label for="publisher" class="form-label">Publisher</label>
+        <input type="text" class="form-control" id="publisher" name="publisher" placeholder="Publisher">
+      </div>
+      <div class="mb-3">
+        <label for="developer" class="form-label">Developer</label>
+        <input type="text" class="form-control" id="developer" name="developer" placeholder="Developer">
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" name="price" placeholder="9.99">
+      </div>
+      <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <input type="text" class="form-control" id="genre" name="genre" placeholder="Genre">
+      </div>
+      <div class="mb-3">
+        <label for="platform" class="form-label">Platform</label>
+        <input type="text" class="form-control" id="platform" name="platform" placeholder="Platform">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <div class="row">
+        <div class="col m-3 center-align">
+            <button type="submit" class="btn-large light-green">
+                Add Task <i class="fas fa-plus-square right"></i>
+            </button> 
+        </div>
+    </div>
+</form>
+
+{% endblock %}
