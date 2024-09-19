@@ -19,7 +19,6 @@ def add_title():
             developer = request.form.get("developer"),
             price = request.form.get("price"),
             genre = request.form.get("genre"),
-            platform = request.form.get("platform"),
             description = request.form.get("description")
         )
         db.session.add(title)
