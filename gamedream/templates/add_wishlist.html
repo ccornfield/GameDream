@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 {% block content%}
 
-<h3>Add Title to the database.</h3>
+<h3>Add Wishlist to the database.</h3>
 
-<div class="container">
-  <form method="POST" action="{{ url_for('add_title') }}">
+<form>
     <div class="mb-3">
         <label for="game_title" class="form-label">Game Name</label>
         <input type="text" class="form-control" id="game_title" name="game_title" placeholder="Game Name" required>
@@ -19,7 +18,7 @@
       </div>
       <div class="mb-3">
         <label for="price" class="form-label">Price</label>
-        <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+        <input type="number" class="form-control" id="price" name="price" placeholder="9.99">
       </div>
       <div class="mb-3">
         <label for="genre" class="form-label">Genre</label>
@@ -30,18 +29,16 @@
         <input type="text" class="form-control" id="platform" name="platform" placeholder="Platform">
       </div>
       <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
-        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
       <div class="row">
         <div class="col m-3 center-align">
             <button type="submit" class="btn-large light-green">
-                Add Title <i class="fas fa-plus-square right"></i>
+                Add Task <i class="fas fa-plus-square right"></i>
             </button> 
         </div>
     </div>
-  </form>
-</div>
-
+</form>
 
 {% endblock %}

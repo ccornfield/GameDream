@@ -1,6 +1,6 @@
-footer {
-    position: fixed;
-    bottom: 0;
-    margin: auto;
-    width: 100%
+
+
+.container{
+    margin: 10px;
+    background-color: rgb(46, 92, 90);
 }
