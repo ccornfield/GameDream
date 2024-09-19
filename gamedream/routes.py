@@ -1,12 +1,14 @@
-from flask import render_template
+from flask import render_template, request, redirect, url_for
 from gamedream import app, db
 from gamedream.models import Wishlist, Titles
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("title.html")
 
-
+@app.route("/wishlist")
+def wishlist():
+    return render_template("wishlist.html")
 
 @app.route("/add_title", methods=["GET", "POST"])
 def add_title():
@@ -23,5 +25,4 @@ def add_title():
         db.session.add(title)
         db.session.commit()
         return redirect(url_for("home"))
-        
-    return render_template("base.html")
+    return render_template("add_title.html")
