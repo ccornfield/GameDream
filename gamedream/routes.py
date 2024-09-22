@@ -25,3 +25,16 @@ def add_title():
         db.session.commit()
         return redirect(url_for("home"))
     return render_template("add_title.html")
+
+@app.route("/edit_title/<int:title_id>", methods=["GET", "POST"])
+def edit_title():
+    title = Titles.query.get_or_404("title_id")
+    if request.method == "POST":
+            title.game_title = request.form.get("game_title"),
+            title.publisher = request.form.get("publisher"),
+            title.developer = request.form.get("developer"),
+            title.price = request.form.get("price"),
+            title.genre = request.form.get("genre"),
+            title.description = request.form.get("description")
+            db.session.commit()
+    return render_template("add_title.html", title=title)
