@@ -24,3 +24,5 @@ class Titles(db.Model):
         return "#{0} - Name: {1} - Price: {2}". format(
             self.id, self.game_title, self.price
         )
+
+# class Login

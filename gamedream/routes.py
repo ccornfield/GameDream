@@ -4,7 +4,8 @@ from gamedream.models import Wishlist, Titles
 
 @app.route("/")
 def home():
-    return render_template("title.html")
+    titles = list(Titles.query.order_by(Titles.id).all())
+    return render_template("title.html", titles=titles)
 
 @app.route("/wishlist")
 def wishlist():
@@ -27,8 +28,8 @@ def add_title():
     return render_template("add_title.html")
 
 @app.route("/edit_title/<int:title_id>", methods=["GET", "POST"])
-def edit_title():
-    title = Titles.query.get_or_404("title_id")
+def edit_title(title_id):
+    title = Titles.query.get_or_404(title_id)
     if request.method == "POST":
             title.game_title = request.form.get("game_title"),
             title.publisher = request.form.get("publisher"),
@@ -37,4 +38,5 @@ def edit_title():
             title.genre = request.form.get("genre"),
             title.description = request.form.get("description")
             db.session.commit()
-    return render_template("add_title.html", title=title)
+            return redirect(url_for("home"))
+    return render_template("edit_title.html", title=title)
