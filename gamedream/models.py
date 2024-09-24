@@ -4,7 +4,7 @@ class Wishlist(db.Model):
     # schema for the Wishlist model
     id = db.Column(db.Integer, primary_key=True)
     wishlist_name = db.Column(db.String(30), unique=True, nullable=False)
-    title_id = db.Column(db.Integer, db.ForeignKey("titles.id", ondelete="CASCADE"), nullable=False)
+    title_id = db.Column(db.Integer, db.ForeignKey("titles.id", ondelete="CASCADE"), nullable=True)
     
     def __repr__(self):
         return self.wishlist_name

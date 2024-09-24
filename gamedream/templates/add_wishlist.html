@@ -3,20 +3,19 @@
 
 <h3>Add Wishlist to the database.</h3>
 
-<form>
+<form  method="POST" action="{{ url_for('add_wishlist') }}"> 
     <div class="mb-3">
-        <label for="wishlist_title" class="form-label">Game Name</label>
-        <input type="text" class="form-control" id="wishlist_title" name="wishlist_title" required>
+        <label for="wishlist_name" class="form-label">Wishlist Name</label>
+        <input type="text" class="form-control" id="wishlist_name" name="wishlist_name" required>
       </div>
-      <!--Create a way to add multiple titles to a single table using jinja coding
-      Create the login screen and a way to validate future login attempts
-      Add CRUD to titles and then to Wishlists
-      Apply unique CSS and JS when appropriate
-      Write readme
-      Push successfully to heroku-->
       <div class="mb-3">
-        <label for="titles" class="form-label">Publisher</label>
-        <input type="text" class="form-control" id="titles" name="titles" required>
+      <label for="title_id">Desired Titles</label>
+      <select id = "title_id"  name="title_id" class="form-select" aria-label="Titles">
+        <option selected>Add Titles Here</option>
+        {% for title in titles%}
+          <option value="{{title.id}}">{{title.game_title}}</option>
+        {% endfor %}
+      </select>
       </div>
       <div class="row">
         <div class="col m-3 center-align">

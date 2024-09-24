@@ -40,3 +40,23 @@ def edit_title(title_id):
             db.session.commit()
             return redirect(url_for("home"))
     return render_template("edit_title.html", title=title)
+
+@app.route("/delete_title/<int:title_id>", methods=["GET","POST"])
+def delete_title(title_id):
+    title = Titles.query.get_or_404(title_id)
+    db.session.delete(title)
+    db.session.commit()
+    return redirect(url_for("home"))
+
+@app.route("/add_wishlist", methods={"GET","POST"})
+def add_wishlist():
+    titles = list(Titles.query.order_by(Titles.game_title).all())
+    if request.method == "POST":
+        wishlist = Wishlist(
+            wishlist_name = request.form.get("wishlist_name"),
+            title_id = request.form.get("title_id")
+        )
+        db.session.add(wishlist)
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("add_wishlist.html", titles=titles)
