@@ -25,4 +25,7 @@ class Titles(db.Model):
             self.id, self.game_title, self.price
         )
 
-# class Login
+# class Login(db.Model):
+    # email =
+    # password = 
+    # user_id = random string
