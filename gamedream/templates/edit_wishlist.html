@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content%}
+
+<h3>Edit wishlist on the database</h3>
+
+<form  method="POST" action="{{ url_for('edit_wishlist', wishlist_id = wishlist.id) }}"> 
+    <div class="mb-3">
+        <label for="wishlist_name" class="form-label">Wishlist Name</label>
+        <input type="text" class="form-control" id="wishlist_name" value = "{{wishlist.wishlist_name}}" name="wishlist_name" required>
+      </div>
+      <div class="mb-3">
+      <label for="title_id">Desired Titles</label>
+      <select id = "title_id"  name="title_id" class="form-select" aria-label="Titles" required>
+        <option selected>Add Titles Here</option>
+        {% for title in titles%}
+          {% if title == wishlist.title_id%}
+          <option value="{{title.id}}" selected>{{title.game_title}}</option>
+          {% else %}
+          <option value="{{title.id}}">{{title.game_title}}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      </div>
+      <div class="row">
+        <div class="col m-3 center-align">
+            <button type="submit" class="btn btn-success">
+                Edit wishlist <i class="fas fa-plus-square right"></i>
+            </button> 
+        </div>
+    </div>
+</form>
+
+{% endblock %}

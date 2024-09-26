@@ -62,3 +62,21 @@ def add_wishlist():
         db.session.commit()
         return redirect(url_for("home"))
     return render_template("add_wishlist.html", titles=titles)
+
+@app.route("/edit_wishlist/<int:wishlist_id>", methods=["GET","POST"])
+def edit_wishlist(wishlist_id):
+    titles = list(Titles.query.order_by(Titles.game_title).all())
+    wishlist = Wishlist.query.get_or_404(wishlist_id)
+    if request.method == "POST":
+        wishlist.wishlist_name = request.form.get("wishlist_name"),
+        wishlist.title_id = request.form.get("title_id")
+        db.session.commit()
+        return redirect(url_for("wishlist"))
+    return render_template("edit_wishlist.html", wishlist=wishlist, titles=titles)
+
+@app.route("/delete_wishlist/<int:wishlist_id>", methods=["GET","POST"])
+def delete_wishlist(wishlist_id):
+    wishlist = Wishlist.query.get_or_404(wishlist_id)
+    db.session.delete(wishlist)
+    db.session.commit()
+    return redirect(url_for("home"))
