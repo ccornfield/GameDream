@@ -9,7 +9,9 @@ def home():
 
 @app.route("/wishlist")
 def wishlist():
-    return render_template("wishlist.html")
+    wishlists = list(Wishlist.query.order_by(Wishlist.id).all())
+    titles = list(Titles.query.order_by(Titles.game_title).all())
+    return render_template("wishlist.html", wishlists=wishlists, titles=titles)
 
 @app.route("/add_title", methods=["GET", "POST"])
 def add_title():
