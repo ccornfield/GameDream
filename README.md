@@ -1,131 +1,111 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Gamedream - A portfolio project.
 
-Welcome Charles Cornfield,
+This is my milestone 3 project. For this, I have decided to create a game wishlisting service to allow for storing games and then wishlisting them; complete with their prices, name and description.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Table of Contents
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+1. [Planning & Development](#planning--development)
+2. [Features](#features)
+3. [Testing](#testing)
+4. [Deployment](#deployment)
+5. [Languages](#languages)
+6. [Media Queries](#media-queries)
+7. [Software](#software)
+8. [Code](#code)
+9. [Credits](#credits)
 
-## Gitpod Reminders
+# Planning & Development #
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### Business Strategy
 
-`python3 -m http.server`
+{}
 
-A blue button should appear to click: _Make Public_,
+### Target Audience
 
-Another blue button should appear to click: _Open Browser_.
+{}
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+### Wishlist Keyword Search
 
-A blue button should appear to click: _Make Public_,
+### User Needs
 
-Another blue button should appear to click: _Open Browser_.
+#### User Stories
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+{}
 
-To log into the Heroku toolbelt CLI:
+### Site Objectives
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+{}
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+### Research
 
-### Connecting your Mongo database
+{}
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+### Wireframe
 
-------
+{}
 
-## Release History
+### Color Scheme
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+{}
 
-**June 18, 2024,** Add Mongo back into template
+### Typography
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+{}
 
-**May 28 2024:** Fix Mongo and Links installs
+# Features #
 
-**April 26 2024:** Update node version to 16
+### General
 
-**September 20 2023:** Update Python version to 3.9.17.
+# Testing #
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+{}
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+## Validator Testing
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### W3C Validator
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+{}
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+# Deployment #
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+To deploy my site I used heroku. This was done by using the following steps.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+1. Generating a requirements.txt file containing the python dependencies needed for the project.
+2. Create a Procfile to contain the command for starting up the website.
+3. Create a new variable in __init__.py called DATABASE_URL to allow the project to read an external database.
+4. Log on to Heroku.com and create a new app, while also giving it a unique name and setting the region to europe.
+5. In the settings section, create a config var on the heroku app and assign it the url given by Code Institute.
+6. Add to the config var all the details contained in env.py except DEVELOPMENT and DB_URL.
+7. Go onto the deploy section, and use Connect to Github as the deployment method.
+8. Select your github repo from the list and use Manual Deploy to deploy the branch of choice.
+9. Use the run command feature and type python3 into the console to get the python interpreter.
+10. Run Terminal.py to build the database for the site.
+11. Click run app and enjoy! Be sure to ensure that the site works as it should and that DEBUG is set to false.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+# Languages #
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+* For the development of this website I utilized HTML, CSS, JS and Python in order to create it. 
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+* Bootstrap 5.3.3 was used to create the accordion and for it's grid system in laying out site features.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+# Media Queries #
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+# Software #
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+VS Code was used to create the website. It was the tool for typing out HTML, CSS, JS and Python code along with pushing site updates to the Github repository. Gitpod was used to provide backend and virtual environment support for the use of python without which the site would not function.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Balsamiq was used to create the wireframes saw earlier in this readme.
 
-------
+The microsoft snipping tool was used to take the relevant screenshots.
 
-## FAQ about the uptime script
+# Code #
 
-**Why have you added this script?**
+* https://stackoverflow.com/questions/44051379/css-how-to-pin-footer-to-bottom-of-the-page
+* https://getbootstrap.com/docs/5.3/examples/footers/
+* https://getbootstrap.com/docs/5.3/examples/headers
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+# Credits #
 
-**How will this affect me?**
+Code Institute for the opportunity to learn and hone the craft of developing websites.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+My loving and supportive family for supporting me in this endeavor.
