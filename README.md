@@ -66,6 +66,10 @@ This is my milestone 3 project. For this, I have decided to create a game wishli
 
 {}
 
+### jshint Validator
+
+{}
+
 # Deployment #
 
 To deploy my site I used heroku. This was done by using the following steps.
@@ -89,6 +93,8 @@ To deploy my site I used heroku. This was done by using the following steps.
 * Bootstrap 5.3.3 was used to create the accordion and for it's grid system in laying out site features.
 
 # Media Queries #
+
+Media Queries were used exclusively in the role of increasing the responsiveness of web pages by...
 
 # Software #
 
