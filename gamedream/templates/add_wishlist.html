@@ -8,6 +8,7 @@
         <label for="wishlist_name" class="form-label">Wishlist Name</label>
         <input type="text" class="form-control" id="wishlist_name" name="wishlist_name" required>
       </div>
+
       <div class="mb-3">
       <label for="title_id">Desired Titles</label>
       <select id = "title_id"  name="title_id" class="form-select" aria-label="Titles">
@@ -17,6 +18,11 @@
         {% endfor %}
       </select>
       </div>
+
+      <button id="add_game_title" type="create"></button>
+      <div id="new_button"></div>
+      <br>
+
       <div class="row">
         <div class="col m-3 center-align">
             <button type="submit" class="btn btn-success">
