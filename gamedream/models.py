@@ -1,10 +1,15 @@
 from gamedream import db
 
+wishlist_titles = db.Table("wishlist_titles",
+                           db.Column('wishlist_id', db.Integer, db.ForeignKey('wishlist.id'))
+                           db.Column('game_title_id', db.Integer, db.ForeignKey('titles.id')))
+
 class Wishlist(db.Model):
     # schema for the Wishlist model
     id = db.Column(db.Integer, primary_key=True)
     wishlist_name = db.Column(db.String(30), unique=True, nullable=False)
     title_id = db.Column(db.Integer, db.ForeignKey("titles.id", ondelete="CASCADE"), nullable=True)
+    game_title = db.relationship('Titles', secondary=wishlist_titles, backref='wishlists')
     
     def __repr__(self):
         return self.wishlist_name
@@ -26,6 +31,6 @@ class Titles(db.Model):
         )
 
 # class Login(db.Model):
-    # email =
-    # password = 
-    # user_id = random string
+    # id = db.Column(db.Integer, primary_key=True)
+    # email = db.Column(db.String, unique=True, nullable=False)
+    # password =  db.Column(db.String, unique=True, nullable=False)
