@@ -5,7 +5,7 @@
 
 <div class="container"> 
     <div>
-        <a href="{{ url_for('add_wishlist') }}" class="btn btn-primary">
+        <a href="{{ url_for('main.add_wishlist') }}" class="btn btn-primary">
             Add a wishlist here!
         </a>
     </div>
@@ -34,8 +34,8 @@
         </div>
       </div>
     </div>
-    <a href="{{ url_for('edit_wishlist', wishlist_id = wishlist.id) }}" class="btn btn-success">Edit Wishlist</a>
-    <a href="{{ url_for('delete_wishlist', wishlist_id = wishlist.id) }}" class="btn btn-danger">Delete Wishlist</a>
+    <a href="{{ url_for('main.edit_wishlist', wishlist_id = wishlist.id) }}" class="btn btn-success">Edit Wishlist</a>
+    <a href="{{ url_for('main.delete_wishlist', wishlist_id = wishlist.id) }}" class="btn btn-danger">Delete Wishlist</a>
 
 {% endfor %}
 

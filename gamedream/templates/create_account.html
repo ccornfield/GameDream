@@ -1,8 +1,16 @@
 {% extends "base.html" %}
 {% block content%}
 
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="notification is-danger">
+        {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+    </div>
+{% endif %}
+{% endwith %}
+
 <div>
-    <form  method="POST" action="{{ url_for('home') }}">
+    <form  method="POST" action="{{ url_for('auth.signup') }}">
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="text" class="form-control" id="email" name="email" required>
@@ -14,7 +22,7 @@
         <div class="row">
             <div class="col m-3 center-align">
                 <button type="submit" class="btn btn-success">
-                    Log in <i class="fas fa-plus-square right"></i>
+                    Create Account <i class="fas fa-plus-square right"></i>
                 </button> 
             </div>
         </div>

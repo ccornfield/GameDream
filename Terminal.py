@@ -1,6 +1,6 @@
-from gamedream import create_app
+from gamedream import app, db
 
 with app.app_context():
-    db.create_all()
+    db.drop_all()
 
 print("Database Updated!")

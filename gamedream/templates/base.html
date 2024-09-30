@@ -19,15 +19,15 @@
                 </a>
         
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                  <li><a href="{{ url_for('home') }}" class="nav-link px-2 text-secondary">Home</a></li>
-                  <li><a href="{{ url_for('add_title') }}" class="nav-link px-2 text-white">Create Title</a></li>
-                  <li><a href="{{ url_for('add_wishlist') }}" class="nav-link px-2 text-white">Create Wishlist</a></li>
-                  <li><a href="{{ url_for('title') }}" class="nav-link px-2 text-white">Titles</a></li>
-                  <li><a href="{{ url_for('wishlist') }}" class="nav-link px-2 text-white">Wishlists</a></li>
-                  <li><a href="{{ url_for('login') }}" class="nav-link px-2 text-white">Login</a></li>
-                  <li><a href="{{ url_for('signup') }}" class="nav-link px-2 text-white">Signup</a></li>
-                  <li><a href="{{ url_for('logout') }}" class="nav-link px-2 text-white">Logout</a></li>
-                    <li><a href="{{ url_for('profile') }}" class="nav-link px-2 text-white">Profile</a></li>
+                  <li><a href="{{ url_for('main.home') }}" class="nav-link px-2 text-secondary">Home</a></li>
+                  <li><a href="{{ url_for('main.add_title') }}" class="nav-link px-2 text-white">Create Title</a></li>
+                  <li><a href="{{ url_for('main.add_wishlist') }}" class="nav-link px-2 text-white">Create Wishlist</a></li>
+                  <li><a href="{{ url_for('main.title') }}" class="nav-link px-2 text-white">Titles</a></li>
+                  <li><a href="{{ url_for('main.wishlist') }}" class="nav-link px-2 text-white">Wishlists</a></li>
+                  <li><a href="{{ url_for('auth.login') }}" class="nav-link px-2 text-white">Login</a></li>
+                  <li><a href="{{ url_for('auth.signup') }}" class="nav-link px-2 text-white">Signup</a></li>
+                  <li><a href="{{ url_for('auth.logout') }}" class="nav-link px-2 text-white">Logout</a></li>
+                  <li><a href="{{ url_for('main.profile') }}" class="nav-link px-2 text-white">Profile</a></li>
                 </ul>
         
               </div>
@@ -46,11 +46,15 @@
                 </a>
               
                 <ul class="nav col-md-4 justify-content-end">
-                    <li><a href="{{ url_for('home') }}" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="{{ url_for('add_title') }}" class="nav-link px-2 text-white">Create Title</a></li>
-                    <li><a href="{{ url_for('add_wishlist') }}" class="nav-link px-2 text-white">Create Wishlist</a></li>
-                    <li><a href="{{ url_for('title') }}" class="nav-link px-2 text-white">Titles</a></li>
-                    <li><a href="{{ url_for('wishlist') }}" class="nav-link px-2 text-white">Wishlists</a></li>
+                  <li><a href="{{ url_for('main.home') }}" class="nav-link px-2 text-secondary">Home</a></li>
+                  <li><a href="{{ url_for('main.add_title') }}" class="nav-link px-2 text-white">Create Title</a></li>
+                  <li><a href="{{ url_for('main.add_wishlist') }}" class="nav-link px-2 text-white">Create Wishlist</a></li>
+                  <li><a href="{{ url_for('main.title') }}" class="nav-link px-2 text-white">Titles</a></li>
+                  <li><a href="{{ url_for('main.wishlist') }}" class="nav-link px-2 text-white">Wishlists</a></li>
+                  <li><a href="{{ url_for('auth.login') }}" class="nav-link px-2 text-white">Login</a></li>
+                  <li><a href="{{ url_for('auth.signup') }}" class="nav-link px-2 text-white">Signup</a></li>
+                  <li><a href="{{ url_for('auth.logout') }}" class="nav-link px-2 text-white">Logout</a></li>
+                  <li><a href="{{ url_for('main.profile') }}" class="nav-link px-2 text-white">Profile</a></li>
                 </ul>
               </div>
         </footer>

@@ -4,27 +4,26 @@ from gamedream.models import Wishlist, Titles
 
 main = Blueprint('main', __name__)
 
-@app.route("/")
+@main.route("/")
 def home():
-    titles = list(Titles.query.order_by(Titles.id).all())
-    return render_template("title.html", titles=titles)
+    return render_template("index.html")
 
-@app.route("/profile")
+@main.route("/profile")
 def profile():
     return render_template("profile.html")
 
-@app.route("/title")
+@main.route("/title")
 def title():
     titles = list(Titles.query.order_by(Titles.id).all())
     return render_template("title.html", titles=titles)
 
-@app.route("/wishlist")
+@main.route("/wishlist")
 def wishlist():
     wishlists = list(Wishlist.query.order_by(Wishlist.id).all())
     titles = list(Titles.query.order_by(Titles.game_title).all())
     return render_template("wishlist.html", wishlists=wishlists, titles=titles)
 
-@app.route("/add_title", methods=["GET", "POST"])
+@main.route("/add_title", methods=["GET", "POST"])
 def add_title():
     if request.method == "POST":
         title = Titles(
@@ -40,7 +39,7 @@ def add_title():
         return redirect(url_for("home"))
     return render_template("add_title.html")
 
-@app.route("/edit_title/<int:title_id>", methods=["GET", "POST"])
+@main.route("/edit_title/<int:title_id>", methods=["GET", "POST"])
 def edit_title(title_id):
     title = Titles.query.get_or_404(title_id)
     if request.method == "POST":
@@ -54,14 +53,14 @@ def edit_title(title_id):
             return redirect(url_for("home"))
     return render_template("edit_title.html", title=title)
 
-@app.route("/delete_title/<int:title_id>", methods=["GET","POST"])
+@main.route("/delete_title/<int:title_id>", methods=["GET","POST"])
 def delete_title(title_id):
     title = Titles.query.get_or_404(title_id)
     db.session.delete(title)
     db.session.commit()
     return redirect(url_for("home"))
 
-@app.route("/add_wishlist", methods={"GET","POST"})
+@main.route("/add_wishlist", methods={"GET","POST"})
 def add_wishlist():
     titles = list(Titles.query.order_by(Titles.game_title).all())
     if request.method == "POST":
@@ -74,7 +73,7 @@ def add_wishlist():
         return redirect(url_for("home"))
     return render_template("add_wishlist.html", titles=titles)
 
-@app.route("/edit_wishlist/<int:wishlist_id>", methods=["GET","POST"])
+@main.route("/edit_wishlist/<int:wishlist_id>", methods=["GET","POST"])
 def edit_wishlist(wishlist_id):
     titles = list(Titles.query.order_by(Titles.game_title).all())
     wishlist = Wishlist.query.get_or_404(wishlist_id)
@@ -85,7 +84,7 @@ def edit_wishlist(wishlist_id):
         return redirect(url_for("wishlist"))
     return render_template("edit_wishlist.html", wishlist=wishlist, titles=titles)
 
-@app.route("/delete_wishlist/<int:wishlist_id>", methods=["GET","POST"])
+@main.route("/delete_wishlist/<int:wishlist_id>", methods=["GET","POST"])
 def delete_wishlist(wishlist_id):
     wishlist = Wishlist.query.get_or_404(wishlist_id)
     db.session.delete(wishlist)

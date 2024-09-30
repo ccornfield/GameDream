@@ -4,7 +4,7 @@
 <h3>Add Title to the database.</h3>
 
 <div class="container">
-  <form method="POST" action="{{ url_for('add_title') }}">
+  <form method="POST" action="{{ url_for('main.add_title') }}">
     <div class="mb-3">
         <label for="game_title" class="form-label">Game Name</label>
         <input type="text" class="form-control" id="game_title" name="game_title" placeholder="Game Name" required>

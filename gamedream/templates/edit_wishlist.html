@@ -3,7 +3,7 @@
 
 <h3>Edit wishlist on the database</h3>
 
-<form  method="POST" action="{{ url_for('edit_wishlist', wishlist_id = wishlist.id) }}"> 
+<form  method="POST" action="{{ url_for('main.edit_wishlist', wishlist_id = wishlist.id) }}"> 
     <div class="mb-3">
         <label for="wishlist_name" class="form-label">Wishlist Name</label>
         <input type="text" class="form-control" id="wishlist_name" value = "{{wishlist.wishlist_name}}" name="wishlist_name" required>
