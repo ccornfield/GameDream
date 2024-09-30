@@ -1,5 +1,6 @@
-from flask import render_template, request, redirect, url_for, Blueprint
-from gamedream import app, db
+from flask import render_template, request, redirect, url_for, Blueprint, flash
+from flask_login import login_required, current_user
+from gamedream import db
 from gamedream.models import Wishlist, Titles
 
 main = Blueprint('main', __name__)
@@ -9,8 +10,9 @@ def home():
     return render_template("index.html")
 
 @main.route("/profile")
+@login_required
 def profile():
-    return render_template("profile.html")
+    return render_template("profile.html", name=current_user.name)
 
 @main.route("/title")
 def title():

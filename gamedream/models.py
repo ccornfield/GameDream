@@ -1,4 +1,5 @@
 from gamedream import db
+from flask_login import UserMixin
 
 wishlist_titles = db.Table("wishlist_titles",
                            db.Column('game_wishlist_id', db.Integer, db.ForeignKey('wishlist.id')),
@@ -30,8 +31,9 @@ class Titles(db.Model):
             self.id, self.game_title, self.price
         )
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password =  db.Column(db.String(200), nullable=False)
     
