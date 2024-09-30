@@ -1,4 +1,4 @@
-from gamedream import db, app
+from gamedream import create_app
 
 with app.app_context():
     db.create_all()

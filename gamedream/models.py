@@ -30,7 +30,12 @@ class Titles(db.Model):
             self.id, self.game_title, self.price
         )
 
-# class Login(db.Model):
-    # id = db.Column(db.Integer, primary_key=True)
-    # email = db.Column(db.String, unique=True, nullable=False)
-    # password =  db.Column(db.String, unique=True, nullable=False)
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    password =  db.Column(db.String(100), nullable=False)
+    
+    def __repr__(self):
+        return "#{0} - Email: {1} - Password: {2}". format(
+            self.id, self.email, self.password
+        )

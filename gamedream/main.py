@@ -1,10 +1,17 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, Blueprint
 from gamedream import app, db
 from gamedream.models import Wishlist, Titles
 
+main = Blueprint('main', __name__)
+
 @app.route("/")
 def home():
-    return render_template("login.html")
+    titles = list(Titles.query.order_by(Titles.id).all())
+    return render_template("title.html", titles=titles)
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
 
 @app.route("/title")
 def title():
