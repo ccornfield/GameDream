@@ -4,6 +4,10 @@ from gamedream.models import Wishlist, Titles
 
 @app.route("/")
 def home():
+    return render_template("login.html")
+
+@app.route("/title")
+def title():
     titles = list(Titles.query.order_by(Titles.id).all())
     return render_template("title.html", titles=titles)
 
