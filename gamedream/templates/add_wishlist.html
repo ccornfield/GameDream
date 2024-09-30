@@ -11,7 +11,7 @@
 
       <div class="mb-3">
       <label for="title_id">Desired Titles</label>
-      <select id = "title_id"  name="title_id" class="form-select" aria-label="Titles">
+      <select id = "title_id"  name="title_id" class="form-select" aria-label="Titles" required multiple>
         <option selected>Add Titles Here</option>
         {% for title in titles%}
           <option value="{{title.id}}">{{title.game_title}}</option>
@@ -19,7 +19,7 @@
       </select>
       </div>
 
-      <button id="add_game_title" type="create"></button>
+      <button id="add_game_title" type="create">Add new title</button>
       <div id="new_button"></div>
       <br>
 

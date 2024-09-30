@@ -1,7 +1,7 @@
 from gamedream import db
 
 wishlist_titles = db.Table("wishlist_titles",
-                           db.Column('wishlist_id', db.Integer, db.ForeignKey('wishlist.id')),
+                           db.Column('game_wishlist_id', db.Integer, db.ForeignKey('wishlist.id')),
                            db.Column('game_title_id', db.Integer, db.ForeignKey('titles.id')))
 
 class Wishlist(db.Model):
