@@ -17,13 +17,15 @@ def profile():
 @main.route("/title")
 def title():
     titles = list(Titles.query.order_by(Titles.id).all())
-    return render_template("title.html", titles=titles)
+    users = list(User.query.order_by(User.id).all())
+    return render_template("title.html", titles=titles, users=users)
 
 @main.route("/wishlist")
 def wishlist():
     wishlists = list(Wishlist.query.order_by(Wishlist.id).all())
     titles = list(Titles.query.order_by(Titles.game_title).all())
-    return render_template("wishlist.html", wishlists=wishlists, titles=titles)
+    users = list(User.query.order_by(User.id).all())
+    return render_template("wishlist.html", wishlists=wishlists, titles=titles, users=users)
 
 @main.route("/add_title", methods=["GET", "POST"])
 @login_required

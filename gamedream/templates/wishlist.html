@@ -20,7 +20,11 @@
 </div>
 
 {%for wishlist in wishlists%}
-<h4>{{wishlist.wishlist_name}}</h4>
+{% for user in users%}
+    {% if wishlist.author_id == user.id%}
+    <h4>{{wishlist.wishlist_name}} - {{user.name}}</h4>
+    {% endif %}
+{% endfor %}
 <div class="accordion" id={{wishlist.id}}>
     <div class="accordion-item">
       <h2 class="accordion-header">

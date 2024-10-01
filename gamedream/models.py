@@ -9,7 +9,7 @@ class Wishlist(db.Model):
     # schema for the Wishlist model
     id = db.Column(db.Integer, primary_key=True)
     wishlist_name = db.Column(db.String(30), unique=True, nullable=False)
-    title_id = db.Column(db.Integer, db.ForeignKey("titles.id", ondelete="CASCADE"), nullable=True)
+    title_id = db.Column(db.ARRAY(db.Integer), db.ForeignKey("titles.id", ondelete="CASCADE"), nullable=True)
     game_title = db.Relationship('Titles', secondary=wishlist_titles, backref='game_wishlists')
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     
