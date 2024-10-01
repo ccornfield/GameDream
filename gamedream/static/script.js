@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(){
+/*document.addEventListener("DOMContentLoaded", function(){
     let buttons = document.getElementById("add_game_title")
 
     for (let button of buttons) {
@@ -21,4 +21,4 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         });
     }
-});
+});*/
