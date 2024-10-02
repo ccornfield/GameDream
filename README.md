@@ -1,6 +1,8 @@
 # Gamedream - A portfolio project.
 
-This is my milestone 3 project. For this, I have decided to create a game wishlisting service to allow for storing games and then wishlisting them; complete with their prices, name and description.
+Welcome to my code institute website readme. This is for my milestone 3 project. For this, I have decided to create a game wishlisting service to allow for storing games and then wishlisting them; complete with their prices, name and description. I have done this because the goal for this project was to create a python website which was able to utilize either a relational database or a non-relational database in order to provide CRUD functionality to a user through relating at least 2 tables in said database.
+
+!["The first thing users see when loading the site"](read_me/placeholder_screen.png)
 
 ## Table of Contents
 
@@ -18,23 +20,32 @@ This is my milestone 3 project. For this, I have decided to create a game wishli
 
 ### Business Strategy
 
-{}
+When I was considering what kind of website I was going to build, I had recieved many ideas from my weekly tutor, like quizzes and reviews. However I decided upon creating a wishlist service for two reasons. The first was because of my own personal interest in video games and the fun of being able to work with something I enjoy in an educational setting. The second reason was because I thought it would interesting to explore more of flask and what it has to offer outside of the code institute walkthroughs, as I had come to find the most fufilment working with flask as opposed to everything else on the course thus far.
 
 ### Target Audience
 
-{}
+When I conducted my marketing research for this project I was astounded to learn that there was zero search results for wishlists. Not a single one. I was suprised because this was a very common feature on many websites and I was also expecting similar results like santa's wishlist etc. The fact that there was no results in this category lets me know that wishlisting is a service that is expected to be a part of a larger website rather than it's own dedicated service both due to convinience and the potential to link directly to the wanted items on the site for quick access and real time updates e.g. sales. This can be seen in other gaming services with wishlisting features like Steam and GOG
 
-### Wishlist Keyword Search
+![There were no results on AdTargeting using the keyword "Wishlist"](read_me/target_audience.png)
 
 ### User Needs
 
 #### User Stories
 
-{}
+1. Be able to securely create an account, log in and log out.
+2. Create a game title with all the details they would want.
+2. Create a game wishlist with all the details they would want.
 
 ### Site Objectives
 
-{}
+* Create a UI that is easy to read with non-conflicting colors.
+* Ensure that the site complies to responsive design theory.
+* Allow users to create titles with full CRUD functionality.
+* Allow users to create wishlists with full CRUD functionality.
+* Ensure that users can log in securely.
+* Prevent other users from altering or deleteing titles and wishlists they have not created.
+* Make sure that the site is accessible to screenreaders
+* Create a good design flow so that users are lead from page to page easily.
 
 ### Research
 
@@ -42,13 +53,31 @@ This is my milestone 3 project. For this, I have decided to create a game wishli
 
 ### Wireframe
 
-{}
+These are the wireframes I created to help me plan out the design of my website. The designs were not final but there were a massive help in creating the project.
+
+![The base template used by all pages.](read_me/base_template.png)
+
+![Account creation screen](read_me/account_creation.png)
+
+![The login screen](read_me/login_screen.png)
+
+![Where users can create titles](read_me/title_creation.png)
+
+![Where users can create wishlists](read_me/wishlist_audience.png)
+
+![The page that lets users view created titles](read_me/titles.png)
+
+![The page that lets users view created titles](read_me/wishlist.png)
 
 ### Color Scheme
+
+![This was the palette I chose to use for my site.](read_me/gamedream_palette.png)
 
 {}
 
 ### Typography
+
+![This was the font I chose to use for my site.](read_me/my_font.png)
 
 {}
 
