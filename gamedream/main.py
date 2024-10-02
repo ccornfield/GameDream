@@ -83,10 +83,13 @@ def add_wishlist():
     titles = list(Titles.query.order_by(Titles.game_title).all())
     if request.method == "POST":
         wishlist = Wishlist(
-            wishlist_name = request.form.get("wishlist_name"),
+            wishlist_name = request.form.get("wishlist_name")
             title_id = request.form.get("title_id"),
             author_id = current_user.id
         )
+        #wishlist_titles = wishlist_titles(
+            #title_id = request.form.get('game_title_id')
+        #)
         db.session.add(wishlist)
         db.session.commit()
         return redirect(url_for("main.home"))

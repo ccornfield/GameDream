@@ -2,7 +2,7 @@ from gamedream import db
 from flask_login import UserMixin
 
 wishlist_titles = db.Table("wishlist_titles",
-                           db.Column('game_wishlist_id', db.Integer, db.ForeignKey('wishlist.id')),
+                           db.Column('game_wishlist_id', db.Integer, backref="game_titles", db.ForeignKey('wishlist.id'), cascade="all, delete", lazy=True)
                            db.Column('game_title_id', db.Integer, db.ForeignKey('titles.id', ondelete="CASCADE")nullable=True))
 
 class Wishlist(db.Model):
