@@ -83,7 +83,7 @@ def add_wishlist():
     titles = list(Titles.query.order_by(Titles.game_title).all())
     if request.method == "POST":
         wishlist = Wishlist(
-            wishlist_name = request.form.get("wishlist_name")
+            wishlist_name = request.form.get("wishlist_name"),
             title_id = request.form.get("title_id"),
             author_id = current_user.id
         )

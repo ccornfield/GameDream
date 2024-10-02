@@ -54,19 +54,19 @@
                 <ul class="nav col-md-4 justify-content-end">
                   <li><a href="{{ url_for('main.home') }}" class="nav-link px-2 text-secondary">Home</a></li>
                   {% if current_user.is_authenticated %}
-                  <li><a href="{{ url_for('main.add_title') }}" class="nav-link px-2 text-white">Create Title</a></li>
-                  <li><a href="{{ url_for('main.add_wishlist') }}" class="nav-link px-2 text-white">Create Wishlist</a></li>
-                  <li><a href="{{ url_for('main.title') }}" class="nav-link px-2 text-white">Titles</a></li>
-                  <li><a href="{{ url_for('main.wishlist') }}" class="nav-link px-2 text-white">Wishlists</a></li>
+                  <li><a href="{{ url_for('main.add_title') }}" class="nav-link px-2 text-black">Create Title</a></li>
+                  <li><a href="{{ url_for('main.add_wishlist') }}" class="nav-link px-2 text-black">Create Wishlist</a></li>
+                  <li><a href="{{ url_for('main.title') }}" class="nav-link px-2 text-black">Titles</a></li>
+                  <li><a href="{{ url_for('main.wishlist') }}" class="nav-link px-2 text-black">Wishlists</a></li>
                   {% endif %}
                   {% if not current_user.is_authenticated %}
-                  <li><a href="{{ url_for('auth.login') }}" class="nav-link px-2 text-white">Login</a></li>
-                  <li><a href="{{ url_for('auth.signup') }}" class="nav-link px-2 text-white">Signup</a></li>
+                  <li><a href="{{ url_for('auth.login') }}" class="nav-link px-2 text-black">Login</a></li>
+                  <li><a href="{{ url_for('auth.signup') }}" class="nav-link px-2 text-black">Signup</a></li>
                   {% endif %}
                   {% if current_user.is_authenticated %}
-                  <li><a href="{{ url_for('auth.logout') }}" class="nav-link px-2 text-white">Logout</a></li>
+                  <li><a href="{{ url_for('auth.logout') }}" class="nav-link px-2 text-black">Logout</a></li>
                   {% endif %}
-                  <li><a href="{{ url_for('main.profile') }}" class="nav-link px-2 text-white">Profile</a></li>
+                  <li><a href="{{ url_for('main.profile') }}" class="nav-link px-2 text-black">Profile</a></li>
                 </ul>
               </div>
         </footer>
