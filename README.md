@@ -55,19 +55,19 @@ When I conducted my marketing research for this project I was astounded to learn
 
 These are the wireframes I created to help me plan out the design of my website. The designs were not final but there were a massive help in creating the project.
 
-![The base template used by all pages.](read_me/base_template.png)
+![The base template used by all pages.](read_me/wireframes/base_template.png)
 
-![Account creation screen](read_me/account_creation.png)
+![Account creation screen](read_me/wireframes/account_creation.png)
 
-![The login screen](read_me/login_screen.png)
+![The login screen](read_me/wireframes/login_screen.png)
 
-![Where users can create titles](read_me/title_creation.png)
+![Where users can create titles](read_me/wireframes/title_creation.png)
 
-![Where users can create wishlists](read_me/wishlist_audience.png)
+![Where users can create wishlists](read_me/wireframes/wishlist_creator.png)
 
-![The page that lets users view created titles](read_me/titles.png)
+![The page that lets users view created titles](read_me/wireframes/titles.png)
 
-![The page that lets users view created titles](read_me/wishlist.png)
+![The page that lets users view created titles](read_me/wireframes/wishlist.png)
 
 ### Color Scheme
 
