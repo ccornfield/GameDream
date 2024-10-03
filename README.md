@@ -47,9 +47,6 @@ When I conducted my marketing research for this project I was astounded to learn
 * Make sure that the site is accessible to screenreaders
 * Create a good design flow so that users are lead from page to page easily.
 
-### Research
-
-{}
 
 ### Wireframe
 
@@ -73,17 +70,65 @@ These are the wireframes I created to help me plan out the design of my website.
 
 ![This was the palette I chose to use for my site.](read_me/gamedream_palette.png)
 
-{}
+I chose the above color scheme because I was already quite fond of how the site was looking with the default colors. I opted to change the colors for ones that were still the same colors, just in different more muted hues so that they would pop naturally out from the background.
 
 ### Typography
 
 ![This was the font I chose to use for my site.](read_me/my_font.png)
 
-{}
+When I was deciding on a font to use I was not really concern with finding something bombastic or overly stylized. Like the color scheme I wanted something that was still similar to the standard but was still distinct enough to be eyecatching. I decided on Nunito because I thought it had a pleasing design and would also still be clear enough to be readable on smaller devices.
 
 # Features #
 
 ### General
+
+Alot of the features on my website revolve around ensures that the user is able to have CRUD functionality. The ability to Create, Read, Update and Delete any and all records they create for the database. This is to ensure users have complete control over what they can input into the site and also to comply with good database practises. For this I will be going page by page since there is alot going on for each feature and I wish to be as comprehensive as I can.
+
+### Home page
+
+![The first page users see when opening the site](read_me/site_images/home.png)
+
+The above image is the first thing that a user will see when accessing my site. A line of text will welcome the user to the site and inform them that they need to create an account and log onto the site before any titles and wishlists can be created. At the top of the screen you can see the header and along the bottom you can see the footer. These both react to whether the user is logged in or not and as such will display certain features depending on this. They are responsive as the screen width changes and the header is a bright white to stand out from the black background. The footer text is black for similar reasons.
+
+### Account Creation
+
+![The page where users can create their accounts.](read_me/site_images/account_creation.png)
+
+The information in the above image is example text. Upon creating an account, the password will be hashed in order to ensure complete security. The login details here get assigned to a database called User which saves it to be used with flask-login.
+
+### Log in Screen
+
+![This is where the user can log onto the site.](read_me/site_images/log_in.png)
+
+The user uses this screen to log onto the site. Using flask-login, the provided details are compared to what is currently stored in the user data table and if there is a match the user is then logged on and given the variable of current_user. With this the user is authenticated and can then go on to create their own titles and wishlists at their leisure.
+
+### Profile
+
+![The user profile where they can see who is logged on.](read_me/site_images/profile.png)
+
+The profile is a simple page made for the sole purpose to displaying the username of the current user so that they may check who is currently logged on as well as to ensure that current_user was working as intended.
+
+### Titles
+
+![The screen where users are able to view titles they have created as well as titles created by other users.](read_me/site_images/titles.png)
+
+Here is where users can see the titles that have been made by all the users of the site. They are arranged in order of what was most recently made and display all the information assigned to them during their creation including names, price and publisher. This is also where users are able to create, edit and delete titles using the buttons provided. The same functionallity to create titles is present in the footer for users who wish to jump into creation one knowing what has already been made. Users can only edit and delete titles they have only made. Attempting to edit/delete titles they do not own will lead to an authentication error.
+
+![A user trying to change a title/wishlist not made by themself will give an authetication error](read_me/site_images/authorization_checker.png)
+
+### Wishlists
+
+![The screen where users are able to view wishlists they have created as well as wishlists created by other users.](read_me/site_images/wishlists.png)
+![This displays what information is stored within the wishlist accordion](read_me/site_images/wishlist_accordion.png)
+
+Here is where users can do much the same for wishlists as they can titles. They can create them, edit them and delete them provided they are the original creators. This is check (as is with id's) by comparing an author_id assigned to them upon creation that is set to be equal to the current_user that made it. When attempting to edit/delete a title, a check is ran which compares the author_id to the id of the current logged in user. If the id's match then the user gains access to the edit form and the delete button. Wishlists are ordered oldest to newest and are built using bootstrap accordions which auto update with information present in the wishlist table.
+
+![The modal involved in preventing deletion of titles/wishlists.](read_me/site_images/deletion_checker.png)
+
+The delete button for both titles and wishlists is hidden behind a modal that when triggered will ask the user if they are sure they wish to delete whatever information they wish to delete from the databse. Upon clicking the Delete button again, the item is removed permanently from the database and will need to be recreated if the user has still accidentally deleted it.
+
+### Tile creation.
+
 
 # Testing #
 

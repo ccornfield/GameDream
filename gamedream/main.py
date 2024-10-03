@@ -81,7 +81,7 @@ def delete_title(title_id):
     flash('Title deleted successfully!')
     db.session.commit()
     
-    return redirect(url_for("main.title"), name=current_user.name)
+    return redirect(url_for("main.title"))
 
 @main.route("/add_wishlist", methods={"GET","POST"})
 @login_required
