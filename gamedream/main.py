@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, url_for, Blueprint, flash
 from flask_login import login_required, current_user
 from gamedream import db
-from gamedream.models import Wishlist, Title, User, wishlist_titles
+from gamedream.models import Wishlist, Title, User
 
 main = Blueprint('main', __name__)
 
@@ -23,8 +23,8 @@ def title():
 @main.route("/wishlist")
 def wishlist():
     
-    wishlists = list(Title.query.order_by(Title.id).all())
-    titles = list(Wishlist.query.order_by(Wishlist.id).all())
+    wishlists = list(Wishlist.query.order_by(Wishlist.id).all())
+    titles = Title.query.all()
     users = list(User.query.order_by(User.id).all())
         
     return render_template("wishlist.html", wishlists=wishlists, titles=titles, users=users)
@@ -87,33 +87,39 @@ def add_wishlist():
     if request.method == "POST":
         wishlist_name = request.form["wishlist_name"]
         selected_title_ids = request.form.getlist("titles[]")
-        author_id = Wishlist(author_id = current_user.id)
         
-        wishlist = Wishlist(wishlist_name=wishlist_name)
+        wishlist = Wishlist(wishlist_name=wishlist_name, author_id=current_user.id)
+        
         titles = Title.query.filter(Title.id.in_(selected_title_ids)).all()
         wishlist.titles.extend(titles)
         
         db.session.add(wishlist)
         db.session.commit()
-        return redirect(url_for("main.title"))
+        return redirect(url_for("main.wishlist"))
     return render_template("add_wishlist.html", all_titles=all_titles, name=current_user.name)
 
 @main.route("/edit_wishlist/<int:wishlist_id>", methods=["GET","POST"])
 @login_required
 def edit_wishlist(wishlist_id):
-    titles = list(Title.query.order_by(Title.game_title).all())
+    all_titles = Title.query.all()
     wishlist = Wishlist.query.get_or_404(wishlist_id)
     if wishlist.author_id != current_user.id: 
         flash('You are not authorized to change this wishlist')
         return redirect(url_for('main.wishlist'))
     if request.method == "POST":
-        wishlist.wishlist_name = request.form.get("wishlist_name"),
-        wishlist.title_id = request.form.get("title_id")
+        wishlist.wishlist_name = request.form["wishlist_name"]
+        selected_title_ids = request.form.getlist("titles[]")
+        
+        titles = Title.query.filter(Title.id.in_(selected_title_ids)).all()
+        
+        wishlist.titles.remove(titles)
+        wishlist.titles.extend(titles)
+        
+        
         db.session.commit()
         return redirect(url_for("main.wishlist"))
 
-    
-    return render_template("edit_wishlist.html", wishlist=wishlist, titles=titles, name=current_user.name)
+    return render_template("edit_wishlist.html", wishlist=wishlist, all_titles=all_titles)
 
 @main.route("/delete_wishlist/<int:wishlist_id>", methods=["GET","POST"])
 @login_required
@@ -126,4 +132,4 @@ def delete_wishlist(wishlist_id):
     db.session.delete(wishlist)
     db.session.commit()
     
-    return redirect(url_for("main.wishlist"), name=current_user.name)
+    return redirect(url_for("main.wishlist"))

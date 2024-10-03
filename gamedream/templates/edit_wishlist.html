@@ -11,7 +11,7 @@
       <div class="mb-3">
       <label for="title_id">Desired Titles</label>
       <select id = "title_id"  name="title_id" class="form-select" aria-label="Titles" required multiple>
-        {% for title in titles%}
+        {% for title in wishlist.titles%}
           {% if title == wishlist.title_id%}
           <option value="{{title.id}}" selected>{{title.game_title}}</option>
           {% else %}
@@ -20,10 +20,6 @@
         {% endfor %}
       </select>
       </div>
-
-      <button id="add_game_title" type="create">Add new title</button>
-      <div id="new_button"></div>
-      <br>
 
       <div class="row">
         <div class="col m-3 center-align">
