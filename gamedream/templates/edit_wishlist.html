@@ -10,13 +10,9 @@
       </div>
       <div class="mb-3">
       <label for="title_id">Desired Titles</label>
-      <select id = "title_id"  name="title_id" class="form-select" aria-label="Titles" required multiple>
-        {% for title in wishlist.titles%}
-          {% if title == wishlist.title_id%}
-          <option value="{{title.id}}" selected>{{title.game_title}}</option>
-          {% else %}
+      <select id = "titles"  name="titles[]" class="form-select" aria-label="Titles" required multiple>
+        {% for title in all_titles%}
           <option value="{{title.id}}">{{title.game_title}}</option>
-          {% endif %}
         {% endfor %}
       </select>
       </div>

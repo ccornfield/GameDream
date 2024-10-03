@@ -43,6 +43,7 @@ def add_title():
             author_id = current_user.id
         )
         db.session.add(title)
+        flash('Title added successfully!')
         db.session.commit()
         return redirect(url_for("main.title"))
     return render_template("add_title.html", name=current_user.name)
@@ -62,6 +63,7 @@ def edit_title(title_id):
             title.price = request.form.get("price"),
             title.genre = request.form.get("genre"),
             title.description = request.form.get("description")
+            flash('Title edited successfully!')
             db.session.commit()
             return redirect(url_for("main.title"))
         
@@ -76,6 +78,7 @@ def delete_title(title_id):
         return redirect(url_for('main.title'))
     
     db.session.delete(title)
+    flash('Title deleted successfully!')
     db.session.commit()
     
     return redirect(url_for("main.title"), name=current_user.name)
@@ -94,6 +97,7 @@ def add_wishlist():
         wishlist.titles.extend(titles)
         
         db.session.add(wishlist)
+        flash('Wishlist added successfully!')
         db.session.commit()
         return redirect(url_for("main.wishlist"))
     return render_template("add_wishlist.html", all_titles=all_titles, name=current_user.name)
@@ -106,17 +110,19 @@ def edit_wishlist(wishlist_id):
     if wishlist.author_id != current_user.id: 
         flash('You are not authorized to change this wishlist')
         return redirect(url_for('main.wishlist'))
+    
     if request.method == "POST":
         wishlist.wishlist_name = request.form["wishlist_name"]
+        
         selected_title_ids = request.form.getlist("titles[]")
+        selected_titles = Title.query.filter(Title.id.in_(selected_title_ids)).all()
         
-        titles = Title.query.filter(Title.id.in_(selected_title_ids)).all()
-        
-        wishlist.titles.remove(titles)
-        wishlist.titles.extend(titles)
-        
+        wishlist.titles.clear()
+        wishlist.titles = selected_titles
         
         db.session.commit()
+        
+        flash('Wishlist edited successfully!')
         return redirect(url_for("main.wishlist"))
 
     return render_template("edit_wishlist.html", wishlist=wishlist, all_titles=all_titles)
@@ -130,6 +136,7 @@ def delete_wishlist(wishlist_id):
         return redirect(url_for('main.wishlist'))
     
     db.session.delete(wishlist)
+    flash('Wishlist deleted successfully!')
     db.session.commit()
     
     return redirect(url_for("main.wishlist"))
