@@ -127,7 +127,17 @@ Here is where users can do much the same for wishlists as they can titles. They 
 
 The delete button for both titles and wishlists is hidden behind a modal that when triggered will ask the user if they are sure they wish to delete whatever information they wish to delete from the databse. Upon clicking the Delete button again, the item is removed permanently from the database and will need to be recreated if the user has still accidentally deleted it.
 
-### Tile creation.
+### Title creation
+
+![The form used for creating Titles](read_me/site_images/title_crud.png)
+
+This is the form used for creating titles. It's filled out like a typical for that you could expect to find online. It will inform the user if any part of it is required and once it is filled out, the submit button at the bottom of the screen can be pressed and the title will be created. Redirecting to the title page, a flash message will alert the user of the creation of the title. This message also appears for deleting and editing titles.
+
+### Wishlist creation
+
+![The form used for creating Wishlists](read_me/site_images/wishlist_crud.png)
+
+The form for creating wishlists does use a basic input for deciding a name however the process for selecting multiple titles is more complicated. In order to do this, users need to hold ctrl and click the desired titles in order to add them to the site. This then turns them into a list of title id's which in main.py turns them into a list of title objects which are then added onto wishlist.titles via the extend method, this adding multiple titles to the one wishlist.
 
 
 # Testing #
@@ -138,7 +148,12 @@ The delete button for both titles and wishlists is hidden behind a modal that wh
 
 ### W3C Validator
 
-{}
+Validator testing consisted entirely of using the W3C CSS and HTML validators as no non-bootstrap javascript was used for this project and I could not find an online python validator to use to check my python code. Many of the errors I experienced were due to the validator not recognising that I had jinja installed and thus the code involved in making those issues flagged up and there was not much I could do unless I decided to remove the jinga code all together. There were some genuine errors in the code however. In my titles forms in both add_title and edit_title I had added a /div that ended up not affecting anything and so it had nothing to close. Another similar instance happened in my wishlists where another end tag existed without a start tag. This one being a /h2 tag. Another error that I had flagged by the validator was on of my form pages where the ending form and div tags were not in the correct place, damaging the syntax of the of the overall code.
+
+![An example of the most common errors I recieved](read_me/validator_results/create_account_validator.png)
+
+![My CSS Validator results](read_me/validator_results/css_validator.png)
+
 
 # Deployment #
 
@@ -164,7 +179,7 @@ To deploy my site I used heroku. This was done by using the following steps.
 
 # Media Queries #
 
-Media Queries were used exclusively in the role of increasing the responsiveness of web pages by...
+Media Queries were used exclusively in the role of increasing the responsiveness of web pages by ensuring the cards on my titles web page were spaced out efficiently and also stacked ontop of one another more and more as the screen decreases in size until the card itself gets a shorter width.
 
 # Software #
 
@@ -179,6 +194,9 @@ The microsoft snipping tool was used to take the relevant screenshots.
 * https://stackoverflow.com/questions/44051379/css-how-to-pin-footer-to-bottom-of-the-page
 * https://getbootstrap.com/docs/5.3/examples/footers/
 * https://getbootstrap.com/docs/5.3/examples/headers
+* https://github.com/techwithtim/Flask-Web-App-Tutorial/issues/130
+* https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login#step-7-setting-up-the-authorization-function
+* https://medium.com/@beckerjustin3537/creating-a-many-to-many-relationship-with-flask-sqlalchemy-69018d467d36
 
 # Credits #
 
