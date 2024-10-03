@@ -11,7 +11,7 @@ class Wishlist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     wishlist_name = db.Column(db.String(30), unique=True, nullable=False)
     titles = db.Relationship('Title', secondary=wishlist_titles, backref=db.backref('wishlists', lazy=True))
-    author_id = db.Column(db.Integer, db.ForeignKey("user.id"), ondelete='CASCADE')
+    author_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete='CASCADE'))
     
     def __repr__(self):
         return self.wishlist_name
@@ -25,7 +25,7 @@ class Title(db.Model):
     price = db.Column(db.Float, nullable=False)
     genre = db.Column(db.String, nullable=False)
     description = db.Column(db.Text, nullable=False)
-    author_id = db.Column(db.Integer, db.ForeignKey("user.id"), ondelete='CASCADE')
+    author_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete='CASCADE'))
     
     def __repr__(self):
         return "#{0} - Name: {1} - Price: {2}". format(
