@@ -23,8 +23,8 @@ def title():
 @main.route("/wishlist")
 def wishlist():
     
-    wishlists = Wishlist.query.all()
-    titles = Title.query.all()
+    wishlists = list(Title.query.order_by(Title.id).all())
+    titles = list(Wishlist.query.order_by(Wishlist.id).all())
     users = list(User.query.order_by(User.id).all())
         
     return render_template("wishlist.html", wishlists=wishlists, titles=titles, users=users)
