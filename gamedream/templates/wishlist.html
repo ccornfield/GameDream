@@ -48,9 +48,9 @@
 
     {% endfor %}
 
-    <a href="{{ url_for('main.edit_wishlist', wishlist_id = wishlist.id) }}" class="btn btn-success">Edit Wishlist</a>
+    <a href="{{ url_for('main.edit_wishlist', wishlist_id = wishlist.id) }}" class="btn btn-success wishlist_buttons mx-auto">Edit Wishlist</a>
 
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-{{wishlist.id}}">
+    <button type="button" class="btn btn-danger wishlist_buttons mx-auto" data-bs-toggle="modal" data-bs-target="#delete-{{wishlist.id}}">
         Delete Wishlist
     </button>
 </div>
