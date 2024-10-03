@@ -95,10 +95,6 @@ These are the wireframes I created to help me plan out the design of my website.
 
 {}
 
-### jshint Validator
-
-{}
-
 # Deployment #
 
 To deploy my site I used heroku. This was done by using the following steps.
