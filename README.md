@@ -142,7 +142,35 @@ The form for creating wishlists does use a basic input for deciding a name howev
 
 # Testing #
 
-{}
+Due to the nature of the database and the amount of python code required to make it function, this proved to me the most testing intensive project so far, with multiple points of failure throughout the project which needed to be resolved. A major help in identifying errors with the website was the werkzeug debugger. This feature informed me of errors in the python code and gave me detailed answers as to why the specific error didn't work. I will be going page by page in discussing the errors I experienced in this project and how I managed to resolve them.
+
+### Account creation
+
+One of the errors I realized during the creation of this project was that the form input for handling emails was not an email type and was instead a text type. This was an issue because it allowed users to create an account with that invalid email but then users would not be able to log in using that exact same email. By correcting the account creator to using an email type, the log in process was substantially improved.
+
+### Log In, Profile and Home
+
+Upon testing my log in, it worked as expected and was responsive when adjusted in Chrome Developer tools. It also redirected to the profile page which similarly had no errors in testing due to being a static text page. The Home screen that users intially see upon accessing the site without a created account also proved to be free of errors since it too was a static web page.
+
+### Add Title
+
+During the creation of titles the form used to create the titles were largely free of errors. The html itself was functional and the user was able to interact with the various form inputs without issue. However when it came to making sure that it could be pushed to the database, that is where issues started to arise. Because if certain elements in the form are not specifically lined up with the available columns provided in the database then errors will occur and it will fail to push. This happened when I tried to create a platform input to represent where a certain game released(PC, PS2, Wii etc.) but had failed to add it to my database. This then prevented the entire form from being posted and thus an issue. This was resolved by removing all references to platform both from the main.py and the html file itself. After this was done the form was working as intended.
+
+### Edit Title
+
+The creation of the edit form for changing titles was, in terms of python, the most relaxed and easiest one to work with as it had very little issues involved in it. It worked as intended and the database interacted with it as expected.
+
+### Title Page
+
+This page had errors but not related to the python however, it was related to the css within the page. The css was in such a position where the right side of the page was completely empty and the bootstrap cards were not filling it up despite being inline and filling the left half of the page justfine. The first step to solve this was to add rows to the container that I had made a fluid container, setting it's width to 100%. I then gave the card breakpoints that change the column width depending on the size of the screen. This then prevents them from overfilling the screen or clustering up when the screen size becomes reduced. Finally I created media queries that specifically targeted a title_cards id given to the bootstrap object to ensure that the card size itself changes depending on screen size so that part of it isn't hidden offscreen.
+
+### Wishlists
+
+The creation of adding wishlists would prove to serve it's own set of errors that almost broke the entire site. For the longest time, I was unsure of how to assign multiple titles to a single wishlist that I desired. After significant research I had learned how to do it and began to apply it to the code. A significant error followed however, due to how the variables were added and processed. What had occured was that I was seperating commits for the wishlist name and the author_id for verification were seperate. This prevented both any user from logging in to use the site and from titles displaying correctly in the form. It had even extended to the wishlist selection page itself as large chunks of jinja code disappeared due to the variables not working correctly.
+
+The first thing that I did to correct this was ensure that both the wishlist name and author id was pushed to the database at the same time so that they were synced up correctly. Then I went into the form and made it so that all titles displayed all the time, making sure that no complicated loops could make it harder to process. Finally I made sure that the main.py properly replaced the titles that may be added or removed using the edit form as at one point any and all attempts to change a wishlist after it was created, even if no changes were made, would wipe all names from the titles in the select box. They could still be clicked and use, but with no name it would be very hard for users to interact with it in a satisfying way.
+
+Another minor error that was thrown up regarding wishlists where adding a wishlist name that was too big would break the site. This was resolved with placeholder text informing the user to not add more than 30 characters to a wishlist title.
 
 ## Validator Testing
 
@@ -153,6 +181,8 @@ Validator testing consisted entirely of using the W3C CSS and HTML validators as
 ![An example of the most common errors I recieved](read_me/validator_results/create_account_validator.png)
 
 ![My CSS Validator results](read_me/validator_results/css_validator.png)
+
+My CSS validator was similarly sparse due to the relative lack of css used in the project that could not already be provided by using bootstrap CSS and the various tools it provides. My only error regarding CSS was related to improperly assigning a position called inline that does not actually exist and is instead used for a different css tag. This error has been removed as of the most recent push.
 
 
 # Deployment #
