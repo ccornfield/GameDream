@@ -4,6 +4,8 @@ Welcome to my code institute website readme. This is for my milestone 3 project.
 
 !["The first thing users see when loading the site"](read_me/placeholder_screen.png)
 
+[Click here to access the live website](https://gamedream-f8bd26b6b425.herokuapp.com/)
+
 ## Table of Contents
 
 1. [Planning & Development](#planning--development)
