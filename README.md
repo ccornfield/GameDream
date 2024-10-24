@@ -80,6 +80,13 @@ I chose the above color scheme because I was already quite fond of how the site 
 
 When I was deciding on a font to use I was not really concern with finding something bombastic or overly stylized. Like the color scheme I wanted something that was still similar to the standard but was still distinct enough to be eyecatching. I decided on Nunito because I thought it had a pleasing design and would also still be clear enough to be readable on smaller devices.
 
+### Database
+
+![This was the font I chose to use for my site.](read_me/gamedream_data_model.png)
+
+The above database model shows the relationships between all of the models in my database and their relationships. It features a many to many database with the wishlist titles model to allow for multiple titles to be assigned to one wishlist while allowing those titles to appear on multiple wishlists. It also features a user class which interacts with author ID tables to make it so that only specific signed in users can edit or delete the wishlists/titles that they have created. It is assigned at creation by assigning the author ID to the current ID of the signed in user.
+
+
 # Features #
 
 ### General
