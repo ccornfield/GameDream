@@ -210,6 +210,10 @@ To deploy my site I used heroku. This was done by using the following steps.
 10. Run Terminal.py to build the database for the site.
 11. Click run app and enjoy! Be sure to ensure that the site works as it should and that DEBUG is set to false.
 
+It should also be noted that debug should be set to false before publishing the website. I have done this and provided the relevant evidence below.
+
+![Proof that I have set the debug on my set to false.](read_me/debug_proof.png)
+
 # Languages #
 
 * For the development of this website I utilized HTML, CSS, JS and Python in order to create it. 
