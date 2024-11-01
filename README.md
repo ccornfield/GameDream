@@ -82,9 +82,47 @@ When I was deciding on a font to use I was not really concern with finding somet
 
 ### Database
 
-![This was the font I chose to use for my site.](read_me/gamedream_data_model.png)
+The below database model shows the relationships between all of the models in my database and their relationships. It features a many to many database with the wishlist titles model to allow for multiple titles to be assigned to one wishlist while allowing those titles to appear on multiple wishlists. It also features a user class which interacts with author ID tables to make it so that only specific signed in users can edit or delete the wishlists/titles that they have created. It is assigned at creation by assigning the author ID to the current ID of the signed in user.
 
-The above database model shows the relationships between all of the models in my database and their relationships. It features a many to many database with the wishlist titles model to allow for multiple titles to be assigned to one wishlist while allowing those titles to appear on multiple wishlists. It also features a user class which interacts with author ID tables to make it so that only specific signed in users can edit or delete the wishlists/titles that they have created. It is assigned at creation by assigning the author ID to the current ID of the signed in user.
+#### User
+
+| Key      | Value Type |  Description    |
+| :---        |    :----:   |          ---: |
+| ID      | Integer       | A unique ID for each user (Primary Key)   |
+| Name   | Text        | The username of the user that appears on the profile screen      |
+| Email   | Text        | The email of the user used to authenticate account details      |
+| Password   | Text        | The password of the user used to authenticate account details      |
+| Title   | Relationship        | Used to link created titles to the user that made them.      |
+| Wishlist   | Relationship        | Used to link created wishlists to the user that made them.       |
+
+#### Wishlist
+
+| Key      | Value Type |  Description    |
+| :---        |    :----:   |          ---: |
+| ID      | Integer       | 	A unique ID for each user (Primary Key)   |
+| Wishlist Name   | Text        | The name for the user's wishlist      |
+| Titles   | Relationship        | Links to the many to many table to allow multiple titles to be assigned to it.      |
+| Author ID   | Integer        | Stores the id of the user that created it. (Foreign Key)     |
+
+#### Title
+
+| Key      | Value Type |  Description    |
+| :---        |    :----:   |          ---: |
+| ID      | Integer       | A unique ID for each user (Primary Key)   |
+| Game Title   | Text        | The name for the game chosen by the user      |
+| Publisher   | Text        | The company that published the game      |
+| Developer   | Text        | The company that made and developed the game      |
+| Price   | Integer       | The price of the game on release or of the titles creation      |
+| Genre   | Relationship        | What the genre of the game was (Puzzle, platformer, etc.)      |
+| Description   | Text        | A description of the game including things like details of the game or trivia related to it.      |
+| Author ID   | Integer        | Stores the id of the user that created it.  (Foreign Key)    |
+
+#### Wishlist Titles
+
+| Key      | Value Type |  Description    |
+| :---        |    :----:   |          ---: |
+| Wishlist ID      | Integer       | This is part of a many to many relationship that allows multiple wishlists to have the same title. (Foreign Key) |
+| Title ID   | Text        | This is part of a many to many relationship that allows multiple titles to be present on a single wishlist. (Foreign Key) |
 
 
 # Features #
