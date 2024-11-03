@@ -231,6 +231,49 @@ Validator testing consisted entirely of using the W3C CSS and HTML validators as
 
 My CSS validator was similarly sparse due to the relative lack of css used in the project that could not already be provided by using bootstrap CSS and the various tools it provides. My only error regarding CSS was related to improperly assigning a position called inline that does not actually exist and is instead used for a different css tag. This error has been removed as of the most recent push.
 
+### Lighthouse Validator
+
+In order to test my website for things such as performance and search engine optimization, I used lighthouse to test every page of my website to check for these factors. The results for each page will be down below. Aside from some performance issues on the page for creating titles, the website scored green in every area save for accessibility which was mainly centralized in the choice of colors for the footer element. The only exception for accessibility existed in the addition and editing of wishlists, where I had green scores across the board.
+
+#### Home Page
+
+![Lighthouse results for my home page](read_me/lighthouse_images/home_page.png)
+
+#### Sign Up
+
+![Lighthouse results for my Sign-up page](read_me/lighthouse_images/signup.png)
+
+#### Log In
+
+![Lighthouse results for my Login page](read_me/lighthouse_images/login.png)
+
+#### Profile
+
+![Lighthouse results for my Profile page](read_me/lighthouse_images/profile.png)
+
+#### Titles
+
+![Lighthouse results for my Titles page](read_me/lighthouse_images/titles.png)
+
+#### Wishlists
+
+![Lighthouse results for my Wishlists page](read_me/lighthouse_images/wishlist.png)
+
+#### Add Title
+
+![Lighthouse results for my Add Title page](read_me/lighthouse_images/add_title.png)
+
+#### Add Wishlist
+
+![Lighthouse results for my Add Wishlist page](read_me/lighthouse_images/add_wishlist.png)
+
+#### Edit Title
+
+![Lighthouse results for my Edit Title page](read_me/lighthouse_images/edit_title.png)
+
+#### Edit Wishlist
+
+![Lighthouse results for my Edit Wishlist page](read_me/lighthouse_images/edit_wishlist.png)
 
 # Deployment #
 
